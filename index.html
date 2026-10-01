@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Shield Pro | Identity Protection & Data Removal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .cyber-bg { background-color: #0B132B; }
+        .cyber-card { background-color: #1C2541; }
+        .accent-cyan { color: #10B981; }
+        .bg-accent-cyan { background-color: #10B981; }
+    </style>
+</head>
+<body class="cyber-bg text-gray-100 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- 1. HEADER & NAVIGATION BAR -->
+    <header class="border-b border-gray-800 bg-[#0B132B]/90 sticky top-0 z-50 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i data-lucide="shield-check" class="text-emerald-400 w-8 h-8"></i>
+                <span class="text-2xl font-bold tracking-wider text-white">Data Shield <span class="text-emerald-400">Pro</span></span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+                <a href="#features" class="hover:text-emerald-400 transition">Features</a>
+                <a href="#how-it-works" class="hover:text-emerald-400 transition">How It Works</a>
+                <a href="#pricing" class="hover:text-emerald-400 transition">Pricing</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleModal('loginModal')" class="border border-emerald-400/50 text-emerald-400 hover:bg-emerald-400/10 px-4 py-2 rounded-lg text-sm font-semibold transition">
+                    Client Login
+                </button>
+                
+                <!-- Hidden Dropdown Menu for Agent Access -->
+                <div class="relative group">
+                    <button class="p-2 text-gray-400 hover:text-white"><i data-lucide="more-vertical"></i></button>
+                    <div class="absolute right-0 mt-2 w-48 bg-[#1C2541] rounded-md shadow-xl py-1 hidden group-hover:block border border-gray-700 z-50">
+                        <a href="#" onclick="toggleModal('agentLoginModal')" class="block px-4 py-2 text-xs text-gray-300 hover:bg-emerald-500/20 hover:text-emerald-400">
+                            🔒 Agent Portal Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SCANNER SECTION -->
+    <section class="py-16 px-4 max-w-5xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+            Take Control of Your Private Data.<br>
+            <span class="text-emerald-400">Stop Spam Calls & Identity Theft Today.</span>
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-10">
+            We automatically purge your phone number, address, and relatives' info from 50+ public data brokers and monitor dark web breaches.
+        </p>
+
+        <!-- MANDATORY SCANNER INPUT FORM -->
+        <div class="cyber-card p-6 md:p-8 rounded-2xl border border-gray-700/60 shadow-2xl text-left max-w-4xl mx-auto">
+            <form id="scannerForm" onsubmit="handleScan(event)" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">US PHONE NUMBER (MANDATORY)</label>
+                        <input type="tel" id="phone" required placeholder="+1 (555) 000-0000" class="w-full bg-[#0B132B] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">EMAIL ADDRESS (MANDATORY)</label>
+                        <input type="email" id="email" required placeholder="john@example.com" class="w-full bg-[#0B132B] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-400">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">FIRST NAME (MANDATORY)</label>
+                        <input type="text" id="firstName" required placeholder="John" class="w-full bg-[#0B132B] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">MIDDLE NAME (OPTIONAL)</label>
+                        <input type="text" id="middleName" placeholder="David" class="w-full bg-[#0B132B] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">LAST NAME (MANDATORY)</label>
+                        <input type="text" id="lastName" required placeholder="Doe" class="w-full bg-[#0B132B] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-emerald-400">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-4 rounded-lg text-lg transition flex items-center justify-center space-x-2 mt-4">
+                    <i data-lucide="search"></i>
+                    <span>SCAN MY EXPOSURE NOW</span>
+                </button>
+            </form>
+
+            <div class="flex flex-wrap items-center justify-center gap-6 mt-6 text-xs text-gray-400 border-t border-gray-800 pt-4">
+                <span class="flex items-center"><i data-lucide="check-circle-2" class="text-emerald-400 w-4 h-4 mr-1"></i> 100% Verified Opt-Out Guarantee</span>
+                <span class="flex items-center"><i data-lucide="lock" class="text-emerald-400 w-4 h-4 mr-1"></i> 256-Bit Encrypted Lookup</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE SCAN RESULTS PREVIEW MODAL (SIMULATION) -->
+    <div id="scanResultSection" class="hidden max-w-4xl mx-auto px-4 mb-16">
+        <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6 text-left">
+            <h3 class="text-red-400 font-bold text-xl mb-2 flex items-center">
+                <i data-lucide="alert-triangle" class="mr-2"></i> Exposure Alert: Records Found!
+            </h3>
+            <p class="text-sm text-gray-300 mb-4">We matched your phone number and email against top public data brokers and breach archives.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="bg-[#0B132B] p-3 rounded border border-gray-800">
+                    <span class="text-gray-400">Public Brokers:</span> <strong class="text-white">Exposed on Spokeo, Whitepages, Radaris</strong>
+                </div>
+                <div class="bg-[#0B132B] p-3 rounded border border-gray-800">
+                    <span class="text-gray-400">Dark Web Leak Check (HIBP):</span> <strong class="text-red-400">2 Breaches Found (Password Leaked)</strong>
+                </div>
+            </div>
+            <a href="#pricing" class="mt-4 inline-block bg-emerald-500 text-black font-bold px-6 py-2 rounded text-xs">
+                SELECT A PLAN TO PURGE THIS DATA
+            </a>
+        </div>
+    </div>
+
+    <!-- 3. DATA BROKER TICKER -->
+    <div class="border-y border-gray-800 py-6 bg-[#0B132B]/50">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-xs uppercase tracking-widest text-gray-500 mb-4">We continuously purge your records from top brokers</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 font-bold text-gray-400 text-lg opacity-80">
+                <span>Spokeo</span>
+                <span>Whitepages</span>
+                <span>Radaris</span>
+                <span>BeenVerified</span>
+                <span>FastPeopleSearch</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. PRICING CARDS -->
+    <section id="pricing" class="py-20 px-4 max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-white mb-2">Choose Your Protection Plan</h2>
+        <p class="text-gray-400 mb-12">Flexible plans for complete personal privacy and piece of mind.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Silver Plan -->
+            <div class="cyber-card rounded-2xl p-8 border border-gray-800 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-300 mb-2">SILVER</h3>
+                    <div class="text-4xl font-extrabold text-white mb-4">$36.99 <span class="text-sm font-normal text-gray-400">/yr</span></div>
+                    <ul class="text-left text-sm text-gray-300 space-y-3 mb-8">
+                        <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> 15 Major Data Brokers</li>
+                        <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> One-Time Clean</li>
+                        <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> Removal PDF Report</li>
+                    </ul>
+                </div>
+                <button onclick="triggerCheckout('Silver', '$36.99')" class="w-full border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-black font-bold py-3 rounded-lg transition">SELECT PLAN</button>
+            </div>
+
+            <!-- Gold Plan (Popular) -->
+            <div class="cyber-card rounded-2xl p-8 border-2 border-emerald-400 relative flex flex-col justify-between shadow-emerald-500/10 shadow-2xl">
+                <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-400 text-black text-xs font-extrabold px-4 py-1 rounded-full uppercase">POPULAR</span>
+                <div>
+                    <h3 class="text-xl font-bold text-emerald-400 mb-2">GOLD</h3>
+                    <div class="text-4xl font-extrabold text-white mb-4">$54.99 <span class="text-sm font-normal text-gray-400">/yr</span></div>
+                    <ul class="text-left text-sm text-gray-300 space-y-3 mb-8">
+                        <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> 30+ Major Data Brokers</li>
+                        <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> Bi-Annual Scans</li>
+                        <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> Priority Support</li>
+                    </ul>
+                </div>
+                <button onclick="triggerCheckout('Gold', '$54.99')" class="w-full bg-emerald-400 hover:bg-emerald-500 text-black font-bold py-3 rounded-lg transition">SELECT PLAN</button>
+            </div>
+
+            <!-- Platinum Plan -->
+            <div class="cyber-card rounded-2xl p-8 border border-gray-800 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-300 mb-2">PLATINUM</h3>
+                    <div class="text-4xl font-extrabold text-white mb-4">$99.99 <span class="text-sm font-normal text-gray-400">/yr</span></div>
+                    <ul class="text-left text-sm text-gray-300 space-y-3 mb-8">
+                        <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> 50+ Data Brokers</li>
+                        <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> Continuous 24/7 Purge</li>
+                        <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> Dark Web Breach Scan</li>
+                    </ul>
+                </div>
+                <button onclick="triggerCheckout('Platinum', '$99.99')" class="w-full border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-black font-bold py-3 rounded-lg transition">SELECT PLAN</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER & PAYMENT BADGES -->
+    <footer class="border-t border-gray-800 py-8 bg-[#060a17]">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <div>&copy; 2026 Data Shield Pro. All Rights Reserved.</div>
+            <div class="flex items-center space-x-6">
+                <span>Terms of Service</span>
+                <span>Privacy Policy</span>
+                <span>Verified Opt-Out Guarantee</span>
+            </div>
+            <div class="flex items-center space-x-2 text-white font-bold">
+                <span>Pay</span>
+                <span>MoonPay</span>
+                <span>Visa</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: CHECKOUT WIDGET (USER FACING) -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-50">
+        <div class="cyber-card p-6 rounded-2xl max-w-md w-full border border-gray-700 relative">
+            <button onclick="toggleModal('checkoutModal')" class="absolute top-4 right-4 text-gray-400"><i data-lucide="x"></i></button>
+            <h3 class="text-xl font-bold mb-1">Complete Purchase</h3>
+            <p class="text-xs text-gray-400 mb-4">Selected Plan: <span id="selectedPlanName" class="text-emerald-400 font-bold">Gold Plan ($54.99)</span></p>
+            
+            <!-- Apple Pay / MoonPay On-Ramp Simulation Widget -->
+            <div class="bg-[#0B132B] border border-gray-800 rounded-xl p-4 mb-4 text-center">
+                <p class="text-xs text-gray-400 mb-2">Fast & Secure Crypto / Apple Pay Checkout</p>
+                <button onclick="alert('Redirecting to Apple Pay / MoonPay Widget...')" class="w-full bg-white text-black font-bold py-3 rounded-lg flex items-center justify-center space-x-2 mb-2">
+                    <span>Pay with</span> <span class="text-lg">Pay</span>
+                </button>
+                <p class="text-[10px] text-gray-500">Powered by MoonPay (Auto-converts to USDT/USDC)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: SECRET AGENT LOGIN & QUICK CHECKOUT -->
+    <div id="agentLoginModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center p-4 z-50">
+        <div class="cyber-card p-6 rounded-2xl max-w-md w-full border border-emerald-500/50 relative">
+            <button onclick="toggleModal('agentLoginModal')" class="absolute top-4 right-4 text-gray-400"><i data-lucide="x"></i></button>
+            <h3 class="text-xl font-bold text-emerald-400 mb-1">Agent Portal Login</h3>
+            <p class="text-xs text-gray-400 mb-4">Authorized Personnel Only (RBAC Protected)</p>
+
+            <form onsubmit="handleAgentLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1">AGENT ID / USERNAME</label>
+                    <input type="text" required placeholder="Agent_Alex" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-sm text-white">
+                </div>
+                <div>
+                    <label class="block text-xs text-gray-400 mb-1">PASSWORD</label>
+                    <input type="password" required placeholder="••••••••" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-sm text-white">
+                </div>
+                <button type="submit" class="w-full bg-emerald-500 text-black font-bold py-2 rounded text-sm">ACCESS AGENT PANEL</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: AGENT INTERNAL PORTAL (/agent-checkout Simulation) -->
+    <div id="agentPortalModal" class="fixed inset-0 bg-black/95 hidden items-center justify-center p-4 z-50">
+        <div class="cyber-card p-6 rounded-2xl max-w-lg w-full border border-emerald-400 relative">
+            <button onclick="toggleModal('agentPortalModal')" class="absolute top-4 right-4 text-gray-400"><i data-lucide="x"></i></button>
+            <div class="flex items-center justify-between mb-4 border-b border-gray-800 pb-2">
+                <h3 class="text-lg font-bold text-emerald-400">Agent Quick-Checkout Generator</h3>
+                <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">RBAC: Active</span>
+            </div>
+
+            <form onsubmit="generatePaymentLink(event)" class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-gray-400 mb-1">CLIENT NAME</label>
+                    <input type="text" id="agClientName" required placeholder="Full Name" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-white">
+                </div>
+                <div>
+                    <label class="block text-gray-400 mb-1">CLIENT PHONE NUMBER</label>
+                    <input type="tel" id="agClientPhone" required placeholder="+1..." class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-white">
+                </div>
+                <div>
+                    <label class="block text-gray-400 mb-1">CLIENT EMAIL</label>
+                    <input type="email" id="agClientEmail" required placeholder="client@email.com" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-white">
+                </div>
+                <div>
+                    <label class="block text-gray-400 mb-1">SELECT PLAN</label>
+                    <select id="agPlan" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-white">
+                        <option>Silver - $36.99/yr</option>
+                        <option selected>Gold - $54.99/yr</option>
+                        <option>Platinum - $99.99/yr</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-emerald-400 text-black font-bold py-3 rounded text-sm mt-2">
+                    GENERATE & SEND PAYMENT LINK (SMS/EMAIL)
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Modal Handler
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+
+        // Handle Scan Logic
+        function handleScan(event) {
+            event.preventDefault();
+            document.getElementById('scanResultSection').classList.remove('hidden');
+            window.scrollTo({ top: document.getElementById('scanResultSection').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        // Trigger User Checkout
+        function triggerCheckout(plan, price) {
+            document.getElementById('selectedPlanName').innerText = `${plan} Plan (${price})`;
+            toggleModal('checkoutModal');
+        }
+
+        // Agent Access Simulation
+        function handleAgentLogin(event) {
+            event.preventDefault();
+            toggleModal('agentLoginModal');
+            toggleModal('agentPortalModal');
+        }
+
+        function generatePaymentLink(event) {
+            event.preventDefault();
+            const phone = document.getElementById('agClientPhone').value;
+            alert(`Success! Secure payment link generated and dispatched via SMS/Email to ${phone}`);
+            toggleModal('agentPortalModal');
+        }
+    </script>
+</body>
+</html>
