@@ -40,7 +40,7 @@
                 <div class="relative group">
                     <button class="p-2 text-gray-400 hover:text-white"><i data-lucide="more-vertical"></i></button>
                     <div class="absolute right-0 mt-2 w-48 bg-[#1C2541] rounded-md shadow-xl py-1 hidden group-hover:block border border-gray-700 z-50">
-                        <a href="#" onclick="toggleModal('agentLoginModal')" class="block px-4 py-2 text-xs text-gray-300 hover:bg-emerald-500/20 hover:text-emerald-400">
+                        <a href="#" onclick="toggleModal('agentLoginModal')" class="block px-4 py-2 text-xs text-gray-300 hover:bg-emerald-500/20 hover:text-emerald-400 flex items-center gap-2">
                             🔒 Agent Portal Login
                         </a>
                     </div>
@@ -139,21 +139,21 @@
     <!-- 4. PRICING CARDS -->
     <section id="pricing" class="py-20 px-4 max-w-6xl mx-auto text-center">
         <h2 class="text-3xl font-bold text-white mb-2">Choose Your Protection Plan</h2>
-        <p class="text-gray-400 mb-12">Flexible plans for complete personal privacy and piece of mind.</p>
+        <p class="text-gray-400 mb-12">Flexible plans for complete personal privacy and peace of mind.</p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Silver Plan -->
             <div class="cyber-card rounded-2xl p-8 border border-gray-800 flex flex-col justify-between">
                 <div>
                     <h3 class="text-xl font-bold text-gray-300 mb-2">SILVER</h3>
-                    <div class="text-4xl font-extrabold text-white mb-4">$36.99 <span class="text-sm font-normal text-gray-400">/yr</span></div>
+                    <div class="text-4xl font-extrabold text-white mb-4">$36.99 <span class="text-sm font-normal text-gray-400">/3 month</span></div>
                     <ul class="text-left text-sm text-gray-300 space-y-3 mb-8">
                         <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> 15 Major Data Brokers</li>
                         <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> One-Time Clean</li>
                         <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> Removal PDF Report</li>
                     </ul>
                 </div>
-                <button onclick="triggerCheckout('Silver', '$36.99')" class="w-full border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-black font-bold py-3 rounded-lg transition">SELECT PLAN</button>
+                <button onclick="triggerCheckout('Silver', '$36.99/3 month')" class="w-full border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-black font-bold py-3 rounded-lg transition">SELECT PLAN</button>
             </div>
 
             <!-- Gold Plan (Popular) -->
@@ -161,14 +161,14 @@
                 <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-400 text-black text-xs font-extrabold px-4 py-1 rounded-full uppercase">POPULAR</span>
                 <div>
                     <h3 class="text-xl font-bold text-emerald-400 mb-2">GOLD</h3>
-                    <div class="text-4xl font-extrabold text-white mb-4">$54.99 <span class="text-sm font-normal text-gray-400">/yr</span></div>
+                    <div class="text-4xl font-extrabold text-white mb-4">$54.99 <span class="text-sm font-normal text-gray-400">/6 month</span></div>
                     <ul class="text-left text-sm text-gray-300 space-y-3 mb-8">
                         <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> 30+ Major Data Brokers</li>
                         <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> Bi-Annual Scans</li>
                         <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> Priority Support</li>
                     </ul>
                 </div>
-                <button onclick="triggerCheckout('Gold', '$54.99')" class="w-full bg-emerald-400 hover:bg-emerald-500 text-black font-bold py-3 rounded-lg transition">SELECT PLAN</button>
+                <button onclick="triggerCheckout('Gold', '$54.99/6 month')" class="w-full bg-emerald-400 hover:bg-emerald-500 text-black font-bold py-3 rounded-lg transition">SELECT PLAN</button>
             </div>
 
             <!-- Platinum Plan -->
@@ -182,7 +182,7 @@
                         <li class="flex items-center"><i data-lucide="check" class="text-emerald-400 w-4 h-4 mr-2"></i> Dark Web Breach Scan</li>
                     </ul>
                 </div>
-                <button onclick="triggerCheckout('Platinum', '$99.99')" class="w-full border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-black font-bold py-3 rounded-lg transition">SELECT PLAN</button>
+                <button onclick="triggerCheckout('Platinum', '$99.99/yr')" class="w-full border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-black font-bold py-3 rounded-lg transition">SELECT PLAN</button>
             </div>
         </div>
     </section>
@@ -196,49 +196,64 @@
                 <span>Privacy Policy</span>
                 <span>Verified Opt-Out Guarantee</span>
             </div>
-            <div class="flex items-center space-x-2 text-white font-bold">
-                <span>Pay</span>
+            <div class="flex items-center space-x-4 text-white font-bold">
+                <span> Pay</span>
+                <span class="text-gray-300"><span class="text-blue-500">G</span><span class="text-red-500">o</span><span class="text-yellow-500">o</span><span class="text-blue-500">g</span><span class="text-green-500">l</span><span class="text-red-500">e</span> Pay</span>
                 <span>MoonPay</span>
-                <span>Visa</span>
+                <span>Visa / Mastercard</span>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL 1: CHECKOUT WIDGET (USER FACING) -->
+    <!-- MODAL 1: CHECKOUT WIDGET (USER FACING WITH MULTI-PAYMENT) -->
     <div id="checkoutModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-50">
         <div class="cyber-card p-6 rounded-2xl max-w-md w-full border border-gray-700 relative">
-            <button onclick="toggleModal('checkoutModal')" class="absolute top-4 right-4 text-gray-400"><i data-lucide="x"></i></button>
-            <h3 class="text-xl font-bold mb-1">Complete Purchase</h3>
-            <p class="text-xs text-gray-400 mb-4">Selected Plan: <span id="selectedPlanName" class="text-emerald-400 font-bold">Gold Plan ($54.99)</span></p>
+            <button onclick="toggleModal('checkoutModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i data-lucide="x"></i></button>
+            <h3 class="text-xl font-bold mb-1 text-white">Complete Purchase</h3>
+            <p class="text-xs text-gray-400 mb-6">Selected Plan: <span id="selectedPlanName" class="text-emerald-400 font-bold">Gold Plan ($54.99/6 month)</span></p>
             
-            <!-- Apple Pay / MoonPay On-Ramp Simulation Widget -->
-            <div class="bg-[#0B132B] border border-gray-800 rounded-xl p-4 mb-4 text-center">
-                <p class="text-xs text-gray-400 mb-2">Fast & Secure Crypto / Apple Pay Checkout</p>
-                <button onclick="alert('Redirecting to Apple Pay / MoonPay Widget...')" class="w-full bg-white text-black font-bold py-3 rounded-lg flex items-center justify-center space-x-2 mb-2">
-                    <span>Pay with</span> <span class="text-lg">Pay</span>
+            <div class="space-y-3">
+                <!-- Apple Pay Button -->
+                <button onclick="alert('Redirecting to Apple Pay / MoonPay Checkout...')" class="w-full bg-white text-black font-bold py-3.5 rounded-xl flex items-center justify-center space-x-2 hover:bg-gray-200 transition">
+                    <span>Pay with</span>
+                    <span class="text-lg">Pay</span>
                 </button>
-                <p class="text-[10px] text-gray-500">Powered by MoonPay (Auto-converts to USDT/USDC)</p>
+
+                <!-- Google Pay Button -->
+                <button onclick="alert('Redirecting to Google Pay Checkout...')" class="w-full bg-black border border-gray-700 text-white font-bold py-3.5 rounded-xl flex items-center justify-center space-x-2 hover:bg-gray-900 transition">
+                    <span>Pay with</span>
+                    <span class="text-base font-semibold"><span class="text-blue-500">G</span><span class="text-red-500">o</span><span class="text-yellow-500">o</span><span class="text-blue-500">g</span><span class="text-green-500">l</span><span class="text-red-500">e</span> Pay</span>
+                </button>
+
+                <!-- Credit / Debit Card / Crypto Button -->
+                <button onclick="alert('Opening Credit Card / Crypto Payment Gateway...')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3.5 rounded-xl transition">
+                    Pay with Credit Card / Crypto
+                </button>
             </div>
+
+            <p class="text-[11px] text-gray-400 text-center mt-5">
+                Powered by MoonPay (Auto-converts to USDT/USDC)
+            </p>
         </div>
     </div>
 
     <!-- MODAL 2: SECRET AGENT LOGIN & QUICK CHECKOUT -->
     <div id="agentLoginModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center p-4 z-50">
         <div class="cyber-card p-6 rounded-2xl max-w-md w-full border border-emerald-500/50 relative">
-            <button onclick="toggleModal('agentLoginModal')" class="absolute top-4 right-4 text-gray-400"><i data-lucide="x"></i></button>
+            <button onclick="toggleModal('agentLoginModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i data-lucide="x"></i></button>
             <h3 class="text-xl font-bold text-emerald-400 mb-1">Agent Portal Login</h3>
             <p class="text-xs text-gray-400 mb-4">Authorized Personnel Only (RBAC Protected)</p>
 
             <form onsubmit="handleAgentLogin(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs text-gray-400 mb-1">AGENT ID / USERNAME</label>
-                    <input type="text" required placeholder="Agent_Alex" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-sm text-white">
+                    <input type="text" required placeholder="Agent_Alex" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-sm text-white focus:outline-none focus:border-emerald-400">
                 </div>
                 <div>
                     <label class="block text-xs text-gray-400 mb-1">PASSWORD</label>
-                    <input type="password" required placeholder="••••••••" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-sm text-white">
+                    <input type="password" required placeholder="••••••••" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-sm text-white focus:outline-none focus:border-emerald-400">
                 </div>
-                <button type="submit" class="w-full bg-emerald-500 text-black font-bold py-2 rounded text-sm">ACCESS AGENT PANEL</button>
+                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-2.5 rounded text-sm transition">ACCESS AGENT PANEL</button>
             </form>
         </div>
     </div>
@@ -246,7 +261,7 @@
     <!-- MODAL 3: AGENT INTERNAL PORTAL (/agent-checkout Simulation) -->
     <div id="agentPortalModal" class="fixed inset-0 bg-black/95 hidden items-center justify-center p-4 z-50">
         <div class="cyber-card p-6 rounded-2xl max-w-lg w-full border border-emerald-400 relative">
-            <button onclick="toggleModal('agentPortalModal')" class="absolute top-4 right-4 text-gray-400"><i data-lucide="x"></i></button>
+            <button onclick="toggleModal('agentPortalModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i data-lucide="x"></i></button>
             <div class="flex items-center justify-between mb-4 border-b border-gray-800 pb-2">
                 <h3 class="text-lg font-bold text-emerald-400">Agent Quick-Checkout Generator</h3>
                 <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded">RBAC: Active</span>
@@ -268,12 +283,12 @@
                 <div>
                     <label class="block text-gray-400 mb-1">SELECT PLAN</label>
                     <select id="agPlan" class="w-full bg-[#0B132B] border border-gray-700 rounded p-2 text-white">
-                        <option>Silver - $36.99/yr</option>
-                        <option selected>Gold - $54.99/yr</option>
-                        <option>Platinum - $99.99/yr</option>
+                        <option>Silver - $36.99 / 3 month</option>
+                        <option selected>Gold - $54.99 / 6 month</option>
+                        <option>Platinum - $99.99 / yr</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-emerald-400 text-black font-bold py-3 rounded text-sm mt-2">
+                <button type="submit" class="w-full bg-emerald-400 text-black font-bold py-3 rounded text-sm mt-2 hover:bg-emerald-300 transition">
                     GENERATE & SEND PAYMENT LINK (SMS/EMAIL)
                 </button>
             </form>
